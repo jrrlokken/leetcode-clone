@@ -12,13 +12,13 @@ function App() {
   const checkCode = () => {
     axios
       .post("http://localhost:8080/python", { code })
-      .then(({ data }) => setTestCaseResults(data.passOrFail));
+      .then(({ data }) => setTestCaseResults([data.passOrFail]));
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="absolute top-20 bottom-40 left-10 right-10 text-left">
+        <div className="absolute text-left top-20 bottom-40 left-10 right-10">
           <div>Create a function to add two numbers in Python.</div>
           <div className="flex space-x-2">
             {testCaseResults.map((testCase, i) => {
@@ -43,7 +43,7 @@ function App() {
           />
           <div
             onClick={() => checkCode()}
-            className="border-2 p-2 bg-green-600"
+            className="p-2 bg-green-600 border-2"
           >
             Submit Code
           </div>
